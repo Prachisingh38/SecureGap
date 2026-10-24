@@ -1,0 +1,84 @@
+{
+  "controls": [
+    {
+      "standard": "ISO 27001",
+      "reference": "A.8.8",
+      "name": "Management of technical vulnerabilities",
+      "description": "Manage technical vulnerabilities and take appropriate measures to address them."
+    },
+    {
+      "standard": "ISO 27001",
+      "reference": "A.8.24",
+      "name": "Use of cryptography",
+      "description": "Define and implement appropriate rules for the use of cryptography."
+    },
+    {
+      "standard": "ISO 27001",
+      "reference": "A.5.15",
+      "name": "Access control",
+      "description": "Establish and implement rules for controlling physical and logical access."
+    },
+    {
+      "standard": "ISO 27001",
+      "reference": "A.5.17",
+      "name": "Authentication information",
+      "description": "Manage authentication information securely."
+    },
+    {
+      "standard": "ISO 27001",
+      "reference": "A.8.15",
+      "name": "Logging",
+      "description": "Produce, store, protect, and analyze appropriate logs."
+    },
+    {
+      "standard": "GDPR",
+      "reference": "Article 25",
+      "name": "Data protection by design and by default",
+      "description": "Implement appropriate data protection measures by design and by default where applicable."
+    },
+    {
+      "standard": "GDPR",
+      "reference": "Article 32",
+      "name": "Security of processing",
+      "description": "Implement security measures appropriate to the risk, considering the applicable requirements."
+    }
+  ],
+  "mappings": {
+    "Technical Vulnerabilities": {
+      "controls": [
+        ["ISO 27001", "A.8.8"],
+        ["GDPR", "Article 32"]
+      ],
+      "recommendation": "Assess the vulnerability, apply appropriate security updates, and verify that the weakness has been resolved."
+    },
+    "Cryptography and Encryption": {
+      "controls": [
+        ["ISO 27001", "A.8.24"],
+        ["GDPR", "Article 32"]
+      ],
+      "recommendation": "Evaluate the sensitivity of the data and implement appropriate encryption and key-management measures."
+    },
+    "Access Control": {
+      "controls": [
+        ["ISO 27001", "A.5.15"],
+        ["GDPR", "Article 25"],
+        ["GDPR", "Article 32"]
+      ],
+      "recommendation": "Review access permissions, enforce least privilege, and verify that access is limited to authorized users."
+    },
+    "Authentication": {
+      "controls": [
+        ["ISO 27001", "A.5.17"],
+        ["GDPR", "Article 32"]
+      ],
+      "recommendation": "Review authentication practices and implement appropriate protections for authentication information."
+    },
+    "Logging": {
+      "controls": [
+        ["ISO 27001", "A.8.15"],
+        ["GDPR", "Article 32"]
+      ],
+      "recommendation": "Review logging requirements and implement appropriate event logging, protection, and monitoring."
+    }
+  }
+}
