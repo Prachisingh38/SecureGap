@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer base {
+  :root {
+    /* Light app background */
+    --background: 210 30% 98%;
+    --foreground: 222 47% 11%;
+
+    /* White cards */
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    /* Blue accent primary */
+    --primary: 221 83% 53%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 214 32% 91%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 210 40% 94%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 25% 88%;
+    --input: 214 25% 88%;
+    --ring: 221 83% 53%;
+
+    /* Status colors */
+    --severity-critical: 0 72% 51%;
+    --severity-high: 0 84% 60%;
+    --severity-medium: 38 92% 50%;
+    --severity-low: 45 93% 51%;
+    --status-warning: 38 92% 50%;
+    --status-verified: 142 71% 45%;
+
+    /* Chart palette */
+    --chart-1: 0 84% 60%;
+    --chart-2: 38 92% 50%;
+    --chart-3: 221 83% 53%;
+    --chart-4: 142 71% 45%;
+    --chart-5: 215 16% 47%;
+
+    --radius: 0.625rem;
+
+    --sidebar: 222 47% 11%;
+    --sidebar-foreground: 210 40% 90%;
+    --sidebar-active: 221 83% 53%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.35);
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.55);
+  background-clip: content-box;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: fade-in 0.35s ease-out both;
+}
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 hsl(var(--severity-high) / 0.5); }
+  70% { box-shadow: 0 0 0 6px hsl(var(--severity-high) / 0); }
+  100% { box-shadow: 0 0 0 0 hsl(var(--severity-high) / 0); }
+}
+.pulse-ring {
+  animation: pulse-ring 2s infinite;
+}
