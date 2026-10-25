@@ -20,21 +20,33 @@ GapStatus = Literal[
 ]
 
 
+
 class FindingCreate(BaseModel):
     title: str = Field(min_length=3, max_length=200)
     description: str = Field(min_length=5)
     severity: Severity
+    status: FindingStatus = "Open"
     asset: str = Field(min_length=1, max_length=200)
-    category: str = Field(min_length=1, max_length=100)
+
+    category: str = Field(default="General", max_length=100)
+    control_id: str | None = None
+    control_reference: str | None = None
+    standard: str | None = None
+    remediation: str | None = None
 
 
 class FindingUpdate(BaseModel):
     title: str | None = Field(default=None, min_length=3, max_length=200)
     description: str | None = Field(default=None, min_length=5)
     severity: Severity | None = None
-    asset: str | None = Field(default=None, min_length=1, max_length=200)
-    category: str | None = Field(default=None, min_length=1, max_length=100)
     status: FindingStatus | None = None
+    asset: str | None = Field(default=None, min_length=1, max_length=200)
+
+    category: str | None = Field(default=None, max_length=100)
+    control_id: str | None = None
+    control_reference: str | None = None
+    standard: str | None = None
+    remediation: str | None = None
 
 
 class FindingResponse(BaseModel):
@@ -47,7 +59,13 @@ class FindingResponse(BaseModel):
     status: FindingStatus
     date_identified: datetime
 
+    control_id: str | None = None
+    control_reference: str | None = None
+    standard: str | None = None
+    remediation: str | None = None
+
     model_config = ConfigDict(from_attributes=True)
+
 
 
 class GapStatusUpdate(BaseModel):

@@ -35,6 +35,12 @@ class Finding(Base):
         default="Open",
     )
 
+    # Additional fields used by the frontend
+    control_id = Column(String(100), nullable=True)
+    control_reference = Column(String(100), nullable=True)
+    standard = Column(String(100), nullable=True)
+    remediation = Column(Text, nullable=True)
+
     date_identified = Column(
         DateTime(timezone=True),
         nullable=False,
